@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NUTRIELLE для женщин</title>
+<meta name="description" content="Программа Nutrielle для поддержки женского здоровья: фитосвечи V-Formula, травяной эликсир и капсулы. Бесплатная консультация.">
+<link rel="icon" href="img/logo.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: фирменный стиль упаковки — шалфей, лаванда, чёрный знак с красной точкой; одна колонка + форма в первом экране */
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --tile:#ECECEA; --ink:#1E1E1C; --muted:#62645E;
+  --red:#C8102E; --sage:#A6AD88; --sage-deep:#5E6648; --lav:#B9A3D6; --line:#DFE1DA;
+  --display:"Tenor Sans", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161714; --surface:#1F201C; --tile:#ECECEA; --ink:#F1F2EC; --muted:#AEB1A6;
+  --red:#F0485F; --sage:#7F8766; --sage-deep:#C3CBA6; --lav:#B9A3D6; --line:#30322C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161714; --surface:#1F201C; --tile:#ECECEA; --ink:#F1F2EC; --muted:#AEB1A6;
+  --red:#F0485F; --sage:#7F8766; --sage-deep:#C3CBA6; --lav:#B9A3D6; --line:#30322C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.18}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+h3{font-size:1.2rem}
+p{margin:0}
+.dot{display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--red);vertical-align:.5em;margin-left:.08em}
+.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:700}
+section{padding-block:64px}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+
+header.top{padding-block:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand img{width:40px;height:44px;border-radius:8px;background:#fff;padding:3px}
+.brand span{font-family:var(--display);font-size:1.4rem;letter-spacing:.02em}
+.brand small{display:block;font-family:var(--body);font-size:.68rem;color:var(--muted);letter-spacing:.06em}
+.top .cta{color:var(--ink);font-weight:700;text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;font-size:.9rem;white-space:nowrap}
+
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start;padding-block:20px 64px}
+.hero-text{display:grid;gap:22px;min-width:0}
+.lead{font-size:1.08rem;color:var(--muted);max-width:56ch}
+.hero-shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:var(--tile);border-radius:20px;padding:14px 10px 0;overflow:hidden}
+.hero-shelf img{width:100%;aspect-ratio:6/7;object-fit:cover;object-position:center 40%;display:block;mix-blend-mode:multiply}
+.facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.facts li{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px;font-size:.86rem;font-weight:600}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:14px;box-shadow:0 18px 40px -28px rgba(30,30,28,.35)}
+.card h3{font-size:1.4rem}
+.sub{color:var(--muted);font-size:.92rem}
+.fields{display:grid;gap:14px;margin-top:6px}
+label{font-size:.85rem;font-weight:600;display:block;margin-bottom:6px}
+input[type=text],input[type=tel]{width:100%;font:inherit;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+input:focus-visible,button:focus-visible,summary:focus-visible,.cert:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.8rem;color:var(--muted);font-weight:400;margin:0}
+.consent input{margin-top:3px;accent-color:var(--ink)}
+button.go{font:inherit;font-weight:700;background:var(--ink);color:var(--bg);border:0;border-radius:12px;padding:15px 18px;cursor:pointer;width:100%;display:flex;justify-content:center;align-items:center;gap:10px}
+button.go::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+button.go:hover{opacity:.9}
+button.go[disabled]{opacity:.6;cursor:wait}
+.err{color:var(--red);font-size:.85rem;min-height:1.2em}
+.ok{text-align:center;display:grid;gap:10px;padding-block:24px}
+.ok strong{font-family:var(--display);font-size:1.45rem;font-weight:400}
+
+.sec-head{display:grid;gap:10px;max-width:640px}
+.sec-head p:not(.eyebrow){color:var(--muted)}
+
+.course{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.prod{display:grid;grid-template-rows:auto 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.prod .ph{background:var(--tile);display:flex;justify-content:center}
+.prod .ph img{width:100%;max-width:340px;aspect-ratio:1/1;object-fit:cover;display:block;mix-blend-mode:multiply}
+.prod .tx{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.step{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage-deep)}
+.prod p{color:var(--muted);font-size:.95rem}
+.pack{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:6px}
+
+.support{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.support .prod .step{color:var(--muted)}
+.lav .step{color:#7C5DA8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lav .step{color:var(--lav)}}
+:root[data-theme="dark"] .lav .step{color:var(--lav)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.list li{padding-left:24px;position:relative}
+.list li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.note{border:1px solid var(--line);border-left:0;background:var(--surface);border-radius:16px;padding:24px;display:grid;gap:8px;position:relative}
+.note strong{font-family:var(--display);font-weight:400;font-size:1.2rem}
+.note p{color:var(--muted)}
+
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.cert{all:unset;cursor:zoom-in;display:grid;gap:10px;align-content:start}
+.cert .sheet{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px;aspect-ratio:3/4;overflow:hidden}
+.cert img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.cert b{font-weight:600;font-size:.92rem;line-height:1.35}
+.cert span{font-size:.8rem;color:var(--muted)}
+.maker{margin-top:24px;color:var(--muted);font-size:.9rem}
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px)}
+dialog::backdrop{background:rgba(20,20,18,.75)}
+dialog img{width:100%;height:auto;max-height:86vh;object-fit:contain;border-radius:8px;background:#fff;display:block}
+dialog button{position:absolute;top:8px;right:8px;font:inherit;font-weight:700;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px}
+.flow div{display:grid;gap:8px;border-top:1.5px solid var(--ink);padding-top:14px}
+.flow b{font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1}
+.flow p{color:var(--muted);font-size:.95rem}
+
+details{border-bottom:1px solid var(--line);padding-block:16px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:65ch}
+
+.final{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;display:grid;gap:6px}
+
+@media (max-width:900px){
+  .hero,.two,.final{grid-template-columns:1fr}
+  .course,.support{grid-template-columns:1fr 1fr}
+  .certs{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  section{padding-block:44px}
+}
+@media (max-width:560px){
+  .course,.support{grid-template-columns:1fr}
+  .top .cta{display:none}
+}
+
+.pluses{list-style:none;padding:0;margin:0;display:grid;gap:10px;max-width:56ch}
+.pluses li{padding-left:24px;position:relative;color:var(--muted)}
+.pluses li b{color:var(--ink)}
+.pluses li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.qbar{display:grid;gap:8px;font-size:.8rem;color:var(--muted);font-weight:600;margin-bottom:14px}
+.qbar i{display:block;height:4px;background:var(--line);border-radius:4px;overflow:hidden}
+.qbar b{display:block;height:100%;width:33%;background:var(--red);transition:width .25s}
+fieldset.q{border:0;padding:0;margin:0;display:grid;gap:10px}
+legend{font-family:var(--display);font-size:1.4rem;line-height:1.2;margin-bottom:8px;padding:0}
+.opt{display:flex;gap:12px;align-items:center;margin:0;border:1px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;font-weight:500;background:var(--bg)}
+.opt:hover{border-color:var(--ink)}
+.opt input{accent-color:var(--red);width:18px;height:18px;flex:none}
+.opt:has(input:checked){border-color:var(--ink);background:var(--surface)}
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;align-items:start}
+.rev{margin:0;display:grid;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:16px}
+.rev img{width:100%;border-radius:12px;display:block}
+.rev figcaption{font-size:.98rem;line-height:1.55}
+.sticky{display:none}
+@media (max-width:700px){
+  .reviews{grid-template-columns:1fr}
+  .sticky{display:flex;justify-content:center;align-items:center;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:var(--bg);font-weight:700;text-decoration:none;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .sticky::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+  footer{padding-bottom:90px}
+}
+
+.strip{background:var(--ink);color:var(--bg);font-size:.85rem}
+.strip-in{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 14px;padding-block:9px;align-items:center}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;background:var(--red);color:#fff;border-radius:6px;padding:2px 8px}
+.gifts-sec{padding-block:0 64px}
+.gifts-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.bigtimer{display:grid;gap:2px}
+.bigtimer small{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.bigtimer span{font-family:var(--display);font-size:clamp(2rem,5vw,2.8rem);font-variant-numeric:tabular-nums;color:var(--red);line-height:1}
+.bigtimer.inline span{font-size:2rem}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.gift{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.gift .gn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.gift p{color:var(--muted);font-size:.95rem}
+.gift.hl{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gift.hl p{color:var(--bg);opacity:.75}
+.gift.hl .gn{border-color:var(--red);background:var(--red);color:#fff}
+.gift-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;border-radius:12px;padding:15px 24px}
+.gift-cta:hover{opacity:.9}
+.sticky span{font-variant-numeric:tabular-nums}
+@media (max-width:700px){.gifts{grid-template-columns:1fr}.gift-cta{width:100%;justify-content:center}}
+
+/* Товары: фото слева, описание справа, компактно */
+.course,.support{grid-template-columns:repeat(3,1fr);gap:14px}
+.prod{grid-template-rows:none;grid-template-columns:120px 1fr;align-items:center;border-radius:14px}
+.prod .ph{height:100%;align-items:center}
+.prod .ph img{max-width:120px;aspect-ratio:1/1}
+.prod .tx{padding:14px 16px;gap:4px}
+.prod h3{font-size:1.05rem}
+.prod p{font-size:.88rem}
+.pack{margin-top:2px;padding-top:6px}
+@media (max-width:900px){.course,.support{grid-template-columns:1fr}}
+@media (max-width:420px){.prod{grid-template-columns:110px 1fr}.prod .ph img{max-width:110px}}
+</style>
+
+<div class="strip"><div class="wrap strip-in"><span><b>Только сегодня:</b> 3 подарка при заявке</span><span class="timer" aria-label="До конца акции"><span data-t>00:00:00</span></span></div></div>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">
+      <img src="img/logo.png" alt="Знак Nutrielle">
+      <div><span>Nutrielle</span><small>Created by women for women</small></div>
+    </a>
+    <a class="cta" href="#zayavka">Консультация</a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Женское здоровье · Миома матки</p>
+      <h1>Диагноз «миома»? Поддержите организм мягко и естественно<span class="dot"></span></h1>
+      <p class="lead">Nutrielle — программа на натуральных компонентах, созданная женщинами для женщин: фитосвечи V-Formula в три этапа, травяной эликсир и капсулы для внутреннего баланса. Ответьте на 3 вопроса, и консультант подберёт программу под вас.</p>
+      <ul class="pluses">
+        <li><b>Понятный курс по шагам.</b> На каждой упаковке номер этапа, путаницы не будет.</li>
+        <li><b>Произведено в Казахстане.</b> Регистрация ЕАЭС, ISO 22000 и ISO 9001.</li>
+        <li><b>Клиентки заказывают повторно.</b> Отзывы ниже на странице.</li>
+      </ul>
+      <div class="hero-shelf" aria-label="Фитосвечи V-Formula, этапы 1, 2 и 3">
+        <img src="img/v1.jpg" alt="V-Formula, этап 1">
+        <img src="img/v2.jpg" alt="V-Formula, этап 2">
+        <img src="img/v3.jpg" alt="V-Formula, этап 3">
+      </div>
+    </div>
+
+    <form class="card lead-form quiz" id="form-top" novalidate>
+      <div class="form-body">
+        <div class="qbar"><span id="qstep">Вопрос 1 из 3</span><i><b id="qfill"></b></i></div>
+        <fieldset class="q" data-key="age">
+          <legend>Сколько вам лет?</legend>
+          <label class="opt"><input type="radio" name="age" value="до 30"> До 30</label>
+          <label class="opt"><input type="radio" name="age" value="30–40"> 30–40</label>
+          <label class="opt"><input type="radio" name="age" value="40–50"> 40–50</label>
+          <label class="opt"><input type="radio" name="age" value="50+"> Старше 50</label>
+        </fieldset>
+        <fieldset class="q" data-key="concern" hidden>
+          <legend>Что вас беспокоит?</legend>
+          <label class="opt"><input type="radio" name="concern" value="диагноз миома"> Врач поставил диагноз «миома»</label>
+          <label class="opt"><input type="radio" name="concern" value="подозрение на миому"> Есть подозрение, жду обследования</label>
+          <label class="opt"><input type="radio" name="concern" value="другое по-женски"> Другие женские вопросы</label>
+          <label class="opt"><input type="radio" name="concern" value="профилактика"> Хочу поддержать здоровье заранее</label>
+        </fieldset>
+        <fieldset class="q" data-key="doctor" hidden>
+          <legend>Вы наблюдаетесь у гинеколога?</legend>
+          <label class="opt"><input type="radio" name="doctor" value="да"> Да, регулярно</label>
+          <label class="opt"><input type="radio" name="doctor" value="давно не была"> Давно не была</label>
+          <label class="opt"><input type="radio" name="doctor" value="нет"> Пока нет</label>
+        </fieldset>
+        <div class="fields final-step" hidden>
+          <h3>Готово! Куда позвонить?</h3>
+          <p class="sub">Консультант подберёт программу по вашим ответам и закрепит за вами 3 подарка дня.</p>
+          <div><label for="name-top">Имя</label><input id="name-top" name="name" type="text" autocomplete="given-name" placeholder="Айгерим" required></div>
+          <div><label for="phone-top">Телефон</label><input id="phone-top" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___-__-__" required></div>
+          <label class="consent"><input id="consent-top" name="consent" type="checkbox" checked> Согласна на обработку персональных данных для связи со мной</label>
+          <p class="err" aria-live="polite"></p>
+          <button class="go" type="submit">Получить консультацию</button>
+        </div>
+      </div>
+      <div class="ok" hidden>
+        <strong>Спасибо, заявка принята</strong>
+        <p class="sub">Подарки закреплены за вами. Консультант позвонит в ближайшее время.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section class="gifts-sec">
+  <div class="wrap">
+    <div class="gifts-head">
+      <div class="sec-head">
+        <p class="eyebrow">Акция дня</p>
+        <h2>Оставьте заявку сегодня и получите 3 подарка</h2>
+      </div>
+      <div class="bigtimer"><small>До конца акции</small><span data-t>00:00:00</span></div>
+    </div>
+    <div class="gifts">
+      <div class="gift"><span class="gn">1</span><h3>Бесплатная доставка</h3><p>Привезём заказ по Казахстану без оплаты за доставку.</p></div>
+      <div class="gift"><span class="gn">2</span><h3>Продукт Nutrielle в подарок</h3><p>Любой один продукт из линейки к вашему заказу.</p></div>
+      <div class="gift hl"><span class="gn">3</span><h3>−50% на приём гинеколога</h3><p>В клинике Lucem. Пройдите осмотр и обсудите программу с врачом.</p></div>
+    </div>
+    <a class="gift-cta" href="#form-top">Забрать подарки</a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Основа программы</p>
+      <h2>Фитосвечи V-Formula: три этапа по порядку</h2>
+      <p>Каждый этап — отдельная упаковка с номером шага. Курс проходят последовательно, от первой формулы к третьей.</p>
+    </div>
+    <div class="course">
+      <article class="prod">
+        <div class="ph"><img src="img/v1.jpg" alt="Упаковка V-Formula, шаг 1 из 3" loading="lazy"></div>
+        <div class="tx"><span class="step">Шаг 1 из 3</span><h3>V-Formula «Панцерин А»</h3><p>Первый этап курса. На упаковке: восстанавливающее действие.</p><p class="pack">10 суппозиториев по 1,2 г</p></div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="img/v2.jpg" alt="Упаковка V-Formula, шаг 2 из 3" loading="lazy"></div>
+        <div class="tx"><span class="step">Шаг 2 из 3</span><h3>V-Formula «Панцерин Б»</h3><p>Второй этап, продолжает курс после первой формулы.</p><p class="pack">10 суппозиториев по 1,2 г</p></div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="img/v3.jpg" alt="Упаковка V-Formula, шаг 3 из 3" loading="lazy"></div>
+        <div class="tx"><span class="step">Шаг 3 из 3</span><h3>V-Formula «Панцерин С»</h3><p>Завершающий этап, обогащён пробиотиками для поддержки женской микрофлоры.</p><p class="pack">10 суппозиториев по 1,2 г</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Поддержка изнутри</p>
+      <h2>Эликсир и капсулы в дополнение к курсу</h2>
+      <p>Консультант подскажет, какие из этих средств подойдут именно вам и как сочетать их со свечами.</p>
+    </div>
+    <div class="support">
+      <article class="prod lav">
+        <div class="ph"><img src="img/elixir.jpg" alt="Herbal Elixir for Woman, флакон и коробка" loading="lazy"></div>
+        <div class="tx"><span class="step">Травяной эликсир</span><h3>Herbal Elixir for Woman</h3><p>Природное средство для женщин на растительных компонентах.</p><p class="pack">Флакон 50 мл · БАД</p></div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="img/detox.jpg" alt="Nutrielle Detox &amp; Balance, банка 60 капсул" loading="lazy"></div>
+        <div class="tx"><span class="step">Капсулы</span><h3>Detox &amp; Balance</h3><p>Очищение и внутренний баланс организма.</p><p class="pack">60 капсул</p></div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="img/balance.jpg" alt="Nutrielle Balance Formula, банка 60 капсул" loading="lazy"></div>
+        <div class="tx"><span class="step">Капсулы</span><h3>Balance Formula</h3><p>Природное средство для женщин, принимается до еды.</p><p class="pack">60 капсул</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Отзывы клиенток</p>
+      <h2>Что пишут нам после курса</h2>
+      <p>Настоящие сообщения из WhatsApp. Имена скрыты.</p>
+    </div>
+    <div class="reviews">
+      <figure class="rev">
+        <img src="img/rev1.jpg" alt="Скриншот отзыва клиентки в WhatsApp на казахском языке" loading="lazy">
+        <figcaption>«Получила доставку, большое спасибо. Отличный продукт, в рекламе не нуждается. Понравился, поэтому сегодня заказываю второй раз».</figcaption>
+      </figure>
+      <figure class="rev">
+        <img src="img/rev2.jpg" alt="Скриншот отзыва клиентки в WhatsApp на казахском языке" loading="lazy">
+        <figcaption>«Помогает не только по-женски, но и всему организму. Стала внимательнее к здоровью и чувствую себя заметно лучше. Спасибо!»</figcaption>
+      </figure>
+    </div>
+    <p class="maker">Перевод с казахского. Опыт каждой женщины индивидуален, результат может отличаться.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">Кому подходит</p>
+      <h2>Для женщин, которые хотят действовать осознанно</h2>
+      <ul class="list">
+        <li>Вам поставили диагноз «миома», и вы наблюдаетесь у гинеколога</li>
+        <li>Вы ищете натуральную поддержку организма в дополнение к рекомендациям врача</li>
+        <li>Вам важно понимать состав и порядок приёма, а не покупать наугад</li>
+      </ul>
+    </div>
+    <div class="note">
+      <strong>Важно знать заранее</strong>
+      <p>Миома требует наблюдения гинеколога. Продукты Nutrielle — биологически активные добавки, а не лекарства. Программу не следует рассматривать как доказанное лечение миомы или замену медицинской терапии. Перед приёмом посоветуйтесь с врачом.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Документы</p>
+      <h2>Регистрация и сертификаты производителя</h2>
+      <p>Нажмите на документ, чтобы рассмотреть его.</p>
+    </div>
+    <div class="certs">
+      <button class="cert" type="button" data-src="img/cert-3.jpg"><div class="sheet"><img src="img/cert-3.jpg" alt="Свидетельство о государственной регистрации ЕАЭС" loading="lazy"></div><b>Свидетельство о госрегистрации ЕАЭС</b><span>Евразийский экономический союз</span></button>
+      <button class="cert" type="button" data-src="img/cert-1.jpg"><div class="sheet"><img src="img/cert-1.jpg" alt="Свидетельство о государственной регистрации Таможенного союза" loading="lazy"></div><b>Свидетельство о госрегистрации ТС</b><span>Минздрав Республики Казахстан</span></button>
+      <button class="cert" type="button" data-src="img/cert-17.jpg"><div class="sheet"><img src="img/cert-17.jpg" alt="Сертификат ISO 22000" loading="lazy"></div><b>ISO 22000: безопасность пищевой продукции</b><span>Действует до 14.12.2028</span></button>
+      <button class="cert" type="button" data-src="img/cert-19.jpg"><div class="sheet"><img src="img/cert-19.jpg" alt="Сертификат ISO 9001" loading="lazy"></div><b>ISO 9001: система менеджмента качества</b><span>Действует до 14.12.2028</span></button>
+    </div>
+    <p class="maker">Производитель: ТОО «PHYTO-APIPHARM», Республика Казахстан.</p>
+  </div>
+</section>
+<dialog id="viewer"><img alt="Документ"><button type="button" id="viewer-close">Закрыть</button></dialog>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Как это происходит</p>
+      <h2>От заявки до программы</h2>
+    </div>
+    <div class="flow">
+      <div><b>1</b><p>Вы оставляете имя и телефон</p></div>
+      <div><b>2</b><p>Консультант звонит и задаёт пару вопросов</p></div>
+      <div><b>3</b><p>Рассказывает о составе, приёме и стоимости</p></div>
+      <div><b>4</b><p>Вы решаете, подходит ли вам программа</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap" style="max-width:800px">
+    <div class="sec-head"><p class="eyebrow">Вопросы</p><h2>Частые вопросы</h2></div>
+    <div style="margin-top:20px">
+      <details><summary>Это лечение миомы?</summary><p>Нет. Nutrielle — комплекс БАД для поддержки женского здоровья. Лечение назначает гинеколог.</p></details>
+      <details><summary>Можно ли принимать вместо операции или назначенных препаратов?</summary><p>Нет. Не отменяйте назначения врача. Программу можно обсудить с гинекологом как дополнение.</p></details>
+      <details><summary>Нужно ли покупать все шесть средств?</summary><p>Не обязательно. Консультант расспросит о вашей ситуации и подскажет, с чего начать.</p></details>
+      <details><summary>Сколько стоит программа?</summary><p>Стоимость зависит от набора средств. Консультант назовёт точную цену по телефону.</p></details>
+      <details><summary>Обязательно ли покупать после звонка?</summary><p>Нет. Консультация бесплатная и ни к чему не обязывает.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="zayavka">
+  <div class="wrap final">
+    <div style="display:grid;gap:14px">
+      <p class="eyebrow">Бесплатная консультация</p>
+      <h2>Узнайте, подходит ли вам программа Nutrielle</h2>
+      <p class="lead">Оставьте номер до полуночи и получите бесплатную доставку, продукт в подарок и скидку 50% на приём гинеколога в клинике Lucem.</p>
+      <div class="bigtimer inline"><small>До конца акции</small><span data-t>00:00:00</span></div>
+    </div>
+    <form class="card lead-form" id="form-bottom" novalidate>
+      <div class="form-body fields">
+        <div><label for="name-bottom">Имя</label><input id="name-bottom" name="name" type="text" autocomplete="given-name" placeholder="Айгерим" required></div>
+        <div><label for="phone-bottom">Телефон</label><input id="phone-bottom" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___-__-__" required></div>
+        <label class="consent"><input id="consent-bottom" name="consent" type="checkbox" checked> Согласна на обработку персональных данных для связи со мной</label>
+        <p class="err" aria-live="polite"></p>
+        <button class="go" type="submit">Получить консультацию</button>
+      </div>
+      <div class="ok" hidden>
+        <strong>Спасибо, заявка принята</strong>
+        <p class="sub">Подарки закреплены за вами. Консультант позвонит в ближайшее время.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<a class="sticky" href="#form-top">Забрать 3 подарка · <span data-t>00:00:00</span></a>
+<div class="wrap">
+  <footer>
+    <p>Nutrielle · nutrielle.kz · Created by women for women</p>
+    <p>Подарки действуют для заявок, оставленных до 23:59 текущего дня. Скидка на приём гинеколога предоставляется клиникой Lucem.</p>
+    <p>БАД. Не является лекарственным средством. Имеются противопоказания, перед применением проконсультируйтесь с врачом.</p>
+  </footer>
+</div>
+
+<script>
+// Адрес API партнёрского кабинета. Пока пусто: форма показывает «Спасибо» без отправки.
+const ENDPOINT = "https://dneqmiyaivfhahlkccxu.supabase.co/functions/v1/nutrielle-lead";
+
+const params = new URLSearchParams(location.search);
+const meta = {};
+["utm_source","utm_medium","utm_campaign","utm_content","utm_term","ttclid"].forEach(k=>{ if(params.get(k)) meta[k]=params.get(k); });
+
+function formatPhone(v){
+  let d = v.replace(/\D/g,"");
+  if(d.startsWith("8")) d = "7"+d.slice(1);
+  if(!d.startsWith("7")) d = "7"+d;
+  d = d.slice(0,11);
+  let out = "+7";
+  if(d.length>1) out += " ("+d.slice(1,4);
+  if(d.length>=4) out += ")";
+  if(d.length>4) out += " "+d.slice(4,7);
+  if(d.length>7) out += "-"+d.slice(7,9);
+  if(d.length>9) out += "-"+d.slice(9,11);
+  return out;
+}
+document.querySelectorAll('input[type=tel]').forEach(el=>{
+  el.addEventListener('focus',()=>{ if(!el.value) el.value="+7 "; });
+  el.addEventListener('input',()=>{ el.value = formatPhone(el.value); });
+});
+
+document.querySelectorAll('.lead-form').forEach(form=>{
+  form.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const err = form.querySelector('.err');
+    const btn = form.querySelector('button.go');
+    const name = form.name.value.trim();
+    const digits = form.phone.value.replace(/\D/g,"");
+    if(name.length<2){ err.textContent="Напишите, как к вам обращаться."; return; }
+    if(digits.length!==11){ err.textContent="Введите номер полностью: +7 и 10 цифр."; return; }
+    if(!form.consent.checked){ err.textContent="Отметьте согласие на обработку данных, чтобы мы могли позвонить."; return; }
+    err.textContent="";
+    const payload = { offer:"3 подарка дня: доставка, продукт, -50% гинеколог Lucem", name, phone:"+"+digits, form:form.id, page:location.href.split("?")[0], created_at:new Date().toISOString(), ...(form.id==="form-top"?answers:{}), ...meta };
+    btn.disabled = true; btn.firstChild.textContent = "Отправляем…";
+    try{
+      if(ENDPOINT){
+        const r = await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+        if(!r.ok) throw new Error(r.status);
+      }
+      form.querySelector('.form-body').hidden = true;
+      form.querySelector('.ok').hidden = false;
+    }catch(_){
+      err.textContent="Заявка не отправилась. Проверьте интернет и попробуйте ещё раз.";
+      btn.disabled=false; btn.firstChild.textContent="Получить консультацию";
+    }
+  });
+});
+
+const viewer = document.getElementById('viewer');
+document.querySelectorAll('.cert').forEach(b=>b.addEventListener('click',()=>{
+  viewer.querySelector('img').src = b.dataset.src;
+  viewer.querySelector('img').alt = b.querySelector('b').textContent;
+  viewer.showModal();
+}));
+document.getElementById('viewer-close').addEventListener('click',()=>viewer.close());
+viewer.addEventListener('click',e=>{ if(e.target===viewer) viewer.close(); });
+
+// Квиз: 3 вопроса, затем имя и телефон
+const quiz=document.getElementById('form-top');
+const qs=[...quiz.querySelectorAll('fieldset.q')];
+const finalStep=quiz.querySelector('.final-step');
+const answers={};
+qs.forEach((fs,i)=>fs.addEventListener('change',e=>{
+  answers[fs.dataset.key]=e.target.value;
+  setTimeout(()=>{
+    fs.hidden=true;
+    if(qs[i+1]){qs[i+1].hidden=false;document.getElementById('qstep').textContent='Вопрос '+(i+2)+' из 3';document.getElementById('qfill').style.width=((i+2)/3*100)+'%';}
+    else{finalStep.hidden=false;document.getElementById('qstep').textContent='Последний шаг';document.getElementById('qfill').style.width='100%';}
+  },180);
+}));
+
+// Таймер до полуночи по времени посетителя
+function tick(){
+  const n=new Date(), m=new Date(n); m.setHours(24,0,0,0);
+  let d=Math.max(0,Math.floor((m-n)/1000));
+  const t=[Math.floor(d/3600),Math.floor(d%3600/60),d%60].map(x=>String(x).padStart(2,'0')).join(':');
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t);
+}
+tick(); setInterval(tick,1000);
+</script>
+
+</body></html>
